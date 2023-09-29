@@ -1,2 +1,11 @@
 #!/bin/bash
-chown -h vincent:staff_hello
+
+# Check if the file "_hello" exists and is a symbolic link
+if [ -L "_hello" ]; then
+    # Change the owner and group owner of the symbolic link
+    chown vincent:staff _hello
+    echo "Owner and group owner of _hello changed to vincent and staff respectively."
+else
+    echo "Error: '_hello' is not a symbolic link or does not exist."
+fi
+
